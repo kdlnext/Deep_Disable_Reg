@@ -64,6 +64,7 @@
 ```bash
 su -c 'for p in $(awk "{print \$1}" /data/system/packages.list | grep -iE "regservice|systemhelper|ctautoregist"); do echo "=== $p ==="; dumpsys package "$p" | grep -E "enabled=|stopped=" | head -n 3; done'
 
+---
 
 ### 2. 查看模块日志与已捕获的隐藏包清单
 ```bash
