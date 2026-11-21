@@ -63,9 +63,11 @@
 直接从系统底层注册表 `/data/system/packages.list` 穿透抓取包名，并用 `dumpsys package` 核对真实状态码：
 ```bash
 su -c 'for p in $(awk "{print \$1}" /data/system/packages.list | grep -iE "regservice|systemhelper|ctautoregist"); do echo "=== $p ==="; dumpsys package "$p" | grep -E "enabled=|stopped=" | head -n 3; done'
+```
 
 ---
 
 ### 2. 查看模块日志与已捕获的隐藏包清单
 ```bash
 su -c 'cat /data/adb/modules/Deep_Disable_Reg/disable.log'
+```
